@@ -1,0 +1,69 @@
+server creation     = nodejs + express
+---------------------------------------
+basic comands 
+-----------------
+
+Creating of the package.json -npm init 
+2)creation of the node modules - npm i express (installing of express)
+
+Basic Steps
+-----------
+1)creating a folder Bank Server 
+2) Create package.json
+3) Install express 
+4) Create index.js
+5) create index inside js
+6) Create an app using Express
+7) Setup port number 
+8) Resolving http request 
+        get
+        post
+        put : update data partially
+        patch : update data completely
+        delete: To delete the data completely
+9)Http response code 
+        1xx - information 
+        2xx - Successfull
+        3xx-Redirection
+        4xx-Client Error
+        5xx-server Error
+
+JSon web token
+
+        install jwt - npm i jsonwebtoken
+
+        To generate a token - sign()
+
+11)Middle ware
+        it comes in the middle of the request and response cycle of the node js execution process
+                1)Application Specific middileware - for entire application
+                        req ,res ,next
+
+                              
+
+
+                2)Router specific Middleware - validate -verify()-jwtwebtoken
+                        
+12) database intergration
+        1)Install mongoose - npm i mongoose
+
+13) Asynchronous function resolving - promise 
+ 
+        1) Resolving state  -.then()
+        2)Reject State - .catch()
+
+14) CROS - Cros orgin Resource Sharing
+        install Cros - npm i cors 
+
+
+
+        port 4200 (angular)-----------request-------------> 3000 node
+
+15) Asynchonous call -RxJs (Reactive Extensions for javscript)
+
+JS -promise
+TS RxJs(libray)
+
+        1)Observable
+                a)resolve - Subscribe()
+                b)reject - catch
