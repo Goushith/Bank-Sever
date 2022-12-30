@@ -52,8 +52,8 @@ userDetails={
 
 
 
- const  login=(acno,pswd)=>{
-  return db.User.findOne({acno,pswd})
+ const  login=(acno,password)=>{
+  return db.User.findOne({acno,password})
   .then(user=>{
     if(user){
       currentUser=user.username

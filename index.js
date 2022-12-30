@@ -132,7 +132,7 @@ app.post('/register',(req,res)=>{
 // login request
 app.post('/login',  (req,res)=>{
     console.log(req.body);
-    dataService.login(req.body.acno,req.body.password)
+    dataService.login(req.body.acno,req.body.pswd)
     .then(result=>{
         res.status(result.statusCode).json(result)
     })
