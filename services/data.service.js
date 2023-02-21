@@ -45,8 +45,6 @@ userDetails={
         message:'Register Succesfull'
     }
 
-
-
   }})}
 
 
@@ -69,7 +67,7 @@ userDetails={
         currentUser:currentUser,
         currentAcno:currentAcno
       }
-    }
+    } 
     else{
       return {
         status:'false',
@@ -80,20 +78,6 @@ userDetails={
   })
   }
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -116,7 +100,7 @@ const  deposit=(acno,pswd,amt)=>{
       user.transaction.push({
           Type:'Credit',
           Amount:amount
-        });
+        });   
         user.save();
         return {
           status:'True',
@@ -137,6 +121,8 @@ const  deposit=(acno,pswd,amt)=>{
   
       
 
+
+  
 
 
    const withdraw=(acno,pswd,amt)=>{

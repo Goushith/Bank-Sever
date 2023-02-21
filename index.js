@@ -28,12 +28,6 @@ app.use(express.json())
 
 const jwt = require('jsonwebtoken')
 
-
-
-
-
-
-
 //create a port number 
 
 app.listen(3000,()=>{
@@ -41,78 +35,38 @@ app.listen(3000,()=>{
 })
 
 // Application Specific Middleware
-const appMiddleWare = (req,res,next)=>{
-    console.log('Application Specific Middleware ');
-    next();
-}
-
-app.use(appMiddleWare)
-
-
-// Router specific Middleware
-const jwtMiddleWare=(req,res,next)=>{
-    try{
-        console.log("Router specific Middleware");
-        const token=req.headers['x-access-token'];
-        const data =jwt.verify(token,'superkey2002');
-        console.log(data);
-        next()
-
-
+    const appMiddleWare = (req,res,next)=>{
+        console.log('Application Specific Middleware ');
+        next();
     }
-    catch{
-        res.status(422).json({
-            statusCode:"422",
-            status:"false",
-            message:"please login first"
+
+    app.use(appMiddleWare)
 
 
-        })
-        
+    // Router specific Middleware
+    const jwtMiddleWare=(req,res,next)=>{
+        try{
+            console.log("Router specific Middleware");
+            const token=req.headers['x-access-token'];
+            const data =jwt.verify(token,'superkey2002');
+            console.log(data);
+            next()
 
+
+        }
+        catch{
+            res.status(422).json({
+                statusCode:"422",
+                status:"false",
+                message:"please login first"
+
+
+            })
+            
+
+        }
+    
     }
-   
-}
-
-
-
-
-
-
-
-
-//creating http request
-//get post put patch please
-
-//resolving get request
-
-// app.get('/',(req,res)=>{
-//     res.send ('get request')
-// })
-
-// //resolving post request
-
-// app.post('/',(req,res)=>{
-//     res.send ('post request')
-// })
-
-// //resolving put request
-
-// app.put('/',(req,res)=>{
-//     res.send ('put request')
-// })
-
-// //resolving patch request
-
-// app.patch('/',(req,res)=>{
-//     res.send ('patch request')
-// })
-
-// //resolving delete request
-
-// app.delete('/',(req,res)=>{
-//     res.send ('delete request')
-// })
 
 // ----------------------API request ------------------------------------------
 
@@ -137,6 +91,9 @@ app.post('/login',  (req,res)=>{
         res.status(result.statusCode).json(result)
     })
 })
+
+
+
 //deposit request
 app.post('/deposit',jwtMiddleWare,(req,res)=>{
     console.log(req.body);
@@ -145,6 +102,10 @@ app.post('/deposit',jwtMiddleWare,(req,res)=>{
         res.status(result.statusCode).json(result)
     })
 })
+
+
+
+
 //withdraw request
 app.post('/withdraw',jwtMiddleWare,(req,res)=>{
     console.log(req.body);
@@ -153,6 +114,9 @@ app.post('/withdraw',jwtMiddleWare,(req,res)=>{
         res.status(result.statusCode).json(result)
     })
 })
+
+
+
 //transaction request
 app.post('/transaction',jwtMiddleWare,(req,res)=>{
     console.log(req.body);
